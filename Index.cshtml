@@ -1,0 +1,228 @@
+﻿@model CustomCalendar.Models.WeekForMonth
+@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    @*<section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                To learn more about ASP.NET MVC visit
+                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
+                If you have any questions about ASP.NET MVC visit
+                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
+            </p>
+        </div>
+    </section>*@
+}
+
+<link href="~/Content/SiteModule.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="~/Scripts/Calendar/Index.js"></script>
+@foreach (var item in System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.MonthGenitiveNames)
+{
+    @item 
+}
+@using (Html.BeginForm())
+{
+    <div id="component-header">
+        <a id="1/1900" class="firstmonth btn" style="float:left;margin-left:10px;"><< First</a> 
+        <a id="@Model.prevMonth" class="month btn previous" style="float:left;margin-left:10px;">< Previous</a> 
+        <span id="spnCurrMonth">@DateTime.Now.ToString("MMM") @DateTime.Now.Year </span>
+        <a id="12/2099" class="lastmonth btn" style="float:right;margin-right:10px;">Last >></a>
+        <a id="@Model.nextMonth" class="month btn next" style="float:right;margin-right:10px;">Next ></a>
+    </div>
+
+    <div>
+        <table id="component-table">
+            <thead>
+                <tr>
+                    <th>
+                        Sun
+                    </th>
+                    <th>
+                        Mon
+                    </th>
+                    <th>
+                        Tue
+                    </th>
+                    <th>
+                        Wed
+                    </th>
+                    <th>
+                        Thurs
+                    </th>
+                    <th>
+                        Fri
+                    </th>
+                    <th>
+                        Sat
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="week1">
+                    @foreach (var item in Model.Week1)
+                    {
+                        if (item != null)
+                        {
+                            if (item.daycolumn == 0 || item.daycolumn == 6)
+                            {
+                                <td class="weekend"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else if (item.Date != DateTime.Today)
+                            {
+                                <td><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else
+                            {
+                                <td class="selected"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    }
+                </tr>
+                <tr id="week2">
+                    @foreach (var item in Model.Week2)
+                    {
+                        if (item != null)
+                        {
+                            if (item.daycolumn == 0 || item.daycolumn == 6)
+                            {
+                                <td class="weekend"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else if (item.Date != DateTime.Today)
+                            {
+                                <td><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else
+                            {
+                                <td class="selected"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    }
+                </tr>
+                <tr id="week3">
+                    @foreach (var item in Model.Week3)
+                    {
+                        if (item != null)
+                        {
+                            if (item.daycolumn == 0 || item.daycolumn == 6)
+                            {
+                                <td class="weekend"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else if (item.Date != DateTime.Today)
+                            {
+                                <td><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else
+                            {
+                                <td class="selected"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    }
+                </tr>
+                <tr id="week4">
+                    @foreach (var item in Model.Week4)
+                    {
+                        if (item != null)
+                        {
+                            if (item.daycolumn == 0 || item.daycolumn == 6)
+                            {
+                                <td class="weekend"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else if (item.Date != DateTime.Today)
+                            {
+                                <td><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else
+                            {
+                                <td class="selected"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    }
+                </tr>
+                <tr id="week5">
+                    @foreach (var item in Model.Week5)
+                    {
+                        if (item != null)
+                        {
+                            if (item.daycolumn == 0 || item.daycolumn == 6)
+                            {
+                                <td class="weekend"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else if (item.Date != DateTime.Today)
+                            {
+                                <td><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                            else
+                            {
+                                <td class="selected"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                            }
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    }
+                </tr>
+                <tr id="week6">
+                    @if (Model.Week6 != null)
+                    {
+                        foreach (var item in Model.Week6)
+                        {
+                            if (item != null)
+                            {
+                                if (item.daycolumn == 0 || item.daycolumn == 6)
+                                {
+                                    <td class="weekend"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                                }
+                                else if (item.Date != DateTime.Today)
+                                {
+                                    <td><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3></a></td>
+                                }
+                                else
+                                {
+                                    <td class="selected"><a id="@item.dateStr" class="dt"><h3>@item.dtDay</h3> </a></td>
+                                }
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                        }
+                    }
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+}
+
+<div>
+    <div style="width: 50%; float: left;">
+        <b>You have selected date : <span id="spnSelectedDate"></span></b>
+    </div>
+    <div id="11/@DateTime.Now.Year" class="month" style="float: right;">
+        <b>Go to Today Date</b>
+    </div>
+</div>
